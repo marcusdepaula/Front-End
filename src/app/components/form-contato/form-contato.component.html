@@ -1,0 +1,65 @@
+<main class="container ">
+  <fieldset>
+      <legend>Formulário para Cadastro - Curso Dev Fullstack:</legend>
+      <form>
+          <div class="form-group row">
+              <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name ="nome">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="contato" class="col-sm-2 col-form-label">Contato</label>
+              <div class="col-sm-10">
+                  <input type="text"  class="form-control" name ="contato">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="CEP" class="col-sm-2 col-form-label">CEP</label>
+              <div class="col-sm-10">
+                  <input name ="cep" type="text" (blur) = "getViaCEP($event)" class="form-control" [(ngModel)] = "formContato.cep">
+              </div>
+          </div>
+
+          <!-- Endereço API -->
+          <div *ngIf= "showForm |async" id= "retornoCEP">
+              <div class="form-group row">
+                  <label for="rua" class="col-sm-2 col-form-label">Rua</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" name ="rua" [(ngModel)] = "formContato.logradouro" >
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="rumero" class="col-sm-2 col-form-label">Número</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" name ="numero" [(ngModel)] = "formContato.numero">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="bairro" class="col-sm-2 col-form-label">Bairro</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" name ="bairro" [(ngModel)] = "formContato.bairro">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="cidade" class="col-sm-2 col-form-label">Cidade/UF</label>
+                  <div class="col-sm-8">
+                      <input type="text" class="form-control" name ="cidade" placeholder="cidade" [(ngModel)] = "formContato.localidade">
+                  </div>
+                  <div class="col-sm-2">
+                      <input type="text" class="form-control" name ="UF" placeholder="UF" [(ngModel)] = "formContato.uf">
+                  </div>
+              </div>
+
+
+
+          </div>
+
+          <div class="form-group row">
+              <div class="col-sm-10">
+                  <button type="submit" class="btn btn-dark">Enviar</button>
+              </div>
+          </div>
+      </form>
+  </fieldset>
+</main>
